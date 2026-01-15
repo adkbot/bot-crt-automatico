@@ -208,6 +208,21 @@ export default function TradingChart({ candles, candles4h, analysis, currentTrad
             });
             quadrantLinesRef.current = [];
 
+            // 🔥 CALCULAR TIMESTAMPS DA ÚLTIMA VELA FECHADA!
+            // Pegar a penúltima vela (última fechada)
+            const lastClosedCandle = candles[candles.length - 2];
+            const startTime = Math.floor(lastClosedCandle.time / 1000);
+            // Estender linha até MUITO à frente (240 minutos = 4 horas)
+            const endTime = startTime + (240 * 60); // 240 velas de 1m à frente
+
+            console.log('🔥 CRT startTime:', {
+                totalCandles: candles.length,
+                lastClosedTime: new Date(lastClosedCandle.time).toLocaleTimeString(),
+                startTime,
+                endTime,
+                extension: '240 minutos (4h)'
+            });
+
             // 🎯 LINHA PCC (Previous Candle Close) - MAIS IMPORTANTE!
             if (crt.pcc && typeof crt.pcc === 'number' && !isNaN(crt.pcc)) {
                 const biasColor = crt.bias?.direction === 'BULLISH' ? '#00ff88' : '#ff3366';
@@ -221,25 +236,22 @@ export default function TradingChart({ candles, candles4h, analysis, currentTrad
                     lastValueVisible: true,
                 });
 
-                // Criar dados e REMOVER DUPLICATAS
-                let pccData = candles.map(c => ({
-                    time: Math.floor(c.time / 1000),
-                    value: crt.pcc
-                })).filter(d => d.value && !isNaN(d.value));
+                console.log('📊 PCC Value:', crt.pcc);
 
-                // REMOVER TIMESTAMPS DUPLICADOS (mantém apenas o primeiro)
-                const seenTimes = new Set();
-                pccData = pccData.filter(d => {
-                    if (seenTimes.has(d.time)) {
-                        return false; // Já vimos este timestamp
-                    }
-                    seenTimes.add(d.time);
-                    return true;
-                });
+                // Criar linha: da vela fechada até muito à frente
+                let pccData = [
+                    { time: startTime, value: crt.pcc },
+                    { time: endTime, value: crt.pcc }
+                ];
+
+                console.log('📊 PCC Data:', pccData);
 
                 if (pccData.length > 0) {
+                    console.log('✅ Desenhando PCC Line estendida');
                     pccLine.setData(pccData);
                     pccLineRef.current = pccLine;
+                } else {
+                    console.error('❌ Sem dados para PCC Line!');
                 }
             }
 
@@ -287,41 +299,26 @@ export default function TradingChart({ candles, candles4h, analysis, currentTrad
                     lastValueVisible: false,
                 });
 
-                // Criar dados para as linhas
-                let openData = candles.map(c => ({
-                    time: Math.floor(c.time / 1000),
-                    value: crt.currentH4.open
-                }));
+                // Criar apenas 2 pontos: início e fim da vela fechada
+                let openData = [
+                    { time: startTime, value: crt.currentH4.open },
+                    { time: endTime, value: crt.currentH4.open }
+                ];
 
-                let closeData = candles.map(c => ({
-                    time: Math.floor(c.time / 1000),
-                    value: crt.currentH4.close
-                }));
+                let closeData = [
+                    { time: startTime, value: crt.currentH4.close },
+                    { time: endTime, value: crt.currentH4.close }
+                ];
 
-                let highData = candles.map(c => ({
-                    time: Math.floor(c.time / 1000),
-                    value: crt.currentH4.high
-                }));
+                let highData = [
+                    { time: startTime, value: crt.currentH4.high },
+                    { time: endTime, value: crt.currentH4.high }
+                ];
 
-                let lowData = candles.map(c => ({
-                    time: Math.floor(c.time / 1000),
-                    value: crt.currentH4.low
-                }));
-
-                // REMOVER DUPLICATAS de cada dataset
-                const removeDuplicates = (data) => {
-                    const seen = new Set();
-                    return data.filter(d => {
-                        if (seen.has(d.time)) return false;
-                        seen.add(d.time);
-                        return true;
-                    });
-                };
-
-                openData = removeDuplicates(openData);
-                closeData = removeDuplicates(closeData);
-                highData = removeDuplicates(highData);
-                lowData = removeDuplicates(lowData);
+                let lowData = [
+                    { time: startTime, value: crt.currentH4.low },
+                    { time: endTime, value: crt.currentH4.low }
+                ];
 
                 openLine.setData(openData);
                 closeLine.setData(closeData);
@@ -348,10 +345,11 @@ export default function TradingChart({ candles, candles4h, analysis, currentTrad
                         lastValueVisible: false,
                     });
 
-                    const lineData = candles.map(c => ({
-                        time: Math.floor(c.time / 1000),
-                        value: value
-                    }));
+                    // Criar apenas 2 pontos: início e fim da vela fechada
+                    const lineData = [
+                        { time: startTime, value: value },
+                        { time: endTime, value: value }
+                    ];
 
                     line.setData(lineData);
                     quadrantLinesRef.current.push(line);
