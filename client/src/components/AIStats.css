@@ -1,10 +1,9 @@
 .ai-stats-card {
     border: 2px solid var(--accent-secondary);
     background: linear-gradient(135deg, rgba(108, 92, 231, 0.05) 0%, var(--bg-card) 100%);
-    max-height: 400px;
-    /* Limitar altura */
+    max-height: 250px;
+    /* 🎯 MUITO REDUZIDO de 400px */
     overflow-y: auto;
-    /* Scroll se necessário */
 }
 
 .ai-trained-badge {
@@ -14,15 +13,16 @@
 .ai-stats-content {
     display: flex;
     flex-direction: column;
-    gap: 8px;
-    /* Reduzido de var(--spacing-lg) */
+    gap: 4px;
+    /* 🎯 MUITO REDUZIDO */
 }
 
 /* TRAINING SECTION */
 .training-section {
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-sm);
+    gap: 4px;
+    /* 🎯 REDUZIDO */
 }
 
 .training-header {
@@ -32,13 +32,15 @@
 }
 
 .training-label {
-    font-size: 0.85rem;
+    font-size: 0.75rem;
+    /* 🎯 REDUZIDO */
     font-weight: 600;
     color: var(--text-secondary);
 }
 
 .training-value {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
+    /* 🎯 REDUZIDO */
     font-weight: 700;
     color: var(--accent-secondary);
     font-family: var(--font-mono);
@@ -46,9 +48,11 @@
 
 .progress-bar {
     width: 100%;
-    height: 10px;
+    height: 6px;
+    /* 🎯 REDUZIDO de 10px */
     background: var(--bg-tertiary);
-    border-radius: 5px;
+    border-radius: 3px;
+    /* 🎯 REDUZIDO */
     overflow: hidden;
     position: relative;
 }
@@ -56,7 +60,8 @@
 .progress-fill {
     height: 100%;
     background: var(--gradient-primary);
-    border-radius: 5px;
+    border-radius: 3px;
+    /* 🎯 REDUZIDO */
     transition: width var(--transition-normal);
     position: relative;
     overflow: hidden;
@@ -89,29 +94,37 @@
 .training-info {
     display: flex;
     align-items: center;
-    gap: var(--spacing-sm);
-    padding: 8px;
+    gap: 4px;
+    /* 🎯 REDUZIDO */
+    padding: 6px;
+    /* 🎯 REDUZIDO */
     background: var(--bg-tertiary);
-    border-radius: 8px;
-    font-size: 0.8rem;
+    border-radius: 6px;
+    /* 🎯 REDUZIDO */
+    font-size: 0.7rem;
+    /* 🎯 REDUZIDO */
     color: var(--text-secondary);
 }
 
 .info-icon {
-    font-size: 1rem;
+    font-size: 0.9rem;
+    /* 🎯 REDUZIDO */
 }
 
 /* AI PERFORMANCE */
 .ai-performance {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: var(--spacing-sm);
+    gap: 4px;
+    /* 🎯 MUITO REDUZIDO */
 }
 
 .performance-item {
     display: flex;
-    gap: var(--spacing-sm);
-    padding: var(--spacing-md);
+    gap: 4px;
+    /* 🎯 REDUZIDO */
+    padding: 6px;
+    /* 🎯 MUITO REDUZIDO */
     background: var(--bg-tertiary);
     border-radius: var(--border-radius);
     border: 1px solid var(--border-color);
@@ -124,7 +137,8 @@
 }
 
 .perf-icon {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
+    /* 🎯 REDUZIDO */
     line-height: 1;
 }
 
@@ -136,14 +150,16 @@
 }
 
 .perf-label {
-    font-size: 0.7rem;
+    font-size: 0.65rem;
+    /* 🎯 REDUZIDO */
     color: var(--text-muted);
     font-weight: 500;
     text-transform: uppercase;
 }
 
 .perf-value {
-    font-size: 1.1rem;
+    font-size: 0.95rem;
+    /* 🎯 REDUZIDO de 1.1rem */
     font-weight: 700;
     font-family: var(--font-mono);
     color: var(--text-primary);
