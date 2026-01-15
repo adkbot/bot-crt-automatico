@@ -1,0 +1,77 @@
+.control-panel {
+    display: flex;
+    gap: var(--spacing-lg);
+    align-items: center;
+}
+
+.control-group {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.control-group label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    white-space: nowrap;
+}
+
+.toggle-btn {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: 10px 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: var(--transition-normal);
+}
+
+.toggle-btn.active {
+    background: var(--gradient-success);
+    box-shadow: 0 0 20px rgba(0, 255, 136, 0.3);
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.toggle-btn.inactive {
+    background: var(--bg-tertiary);
+    color: var(--text-secondary);
+    border: 1px solid var(--border-color);
+}
+
+.toggle-icon {
+    font-size: 1.2rem;
+}
+
+.toggle-text {
+    font-size: 0.85rem;
+}
+
+@media (max-width: 1200px) {
+    .control-panel {
+        width: 100%;
+        justify-content: space-between;
+    }
+}
+
+@media (max-width: 768px) {
+    .control-panel {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .control-group {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .control-group label {
+        font-size: 0.8rem;
+    }
+
+    .select,
+    .toggle-btn {
+        width: 100%;
+    }
+}

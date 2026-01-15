@@ -1,0 +1,287 @@
+.trading-chart-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background: linear-gradient(135deg, #1a1f3a 0%, #0a0e27 100%);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+.chart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    background: rgba(255, 255, 255, 0.02);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.chart-title {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.chart-title .icon {
+    font-size: 1.5rem;
+}
+
+.chart-title h3 {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+    background: linear-gradient(135deg, #00d4ff 0%, #00ff88 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.candle-info {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.info-item .label {
+    color: #a0aec0;
+    font-weight: 500;
+}
+
+.info-item .value {
+    color: #fff;
+    font-weight: 600;
+    font-family: 'Courier New', monospace;
+}
+
+.info-item.change.positive .value {
+    color: #00ff88;
+}
+
+.info-item.change.negative .value {
+    color: #ff3366;
+}
+
+.chart-wrapper {
+    flex: 1;
+    position: relative;
+}
+
+/* ===== CRT LEGEND ===== */
+.chart-legend {
+    padding: 1rem 1.5rem;
+    background: rgba(0, 0, 0, 0.3);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.crt-legend {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.legend-title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #00d4ff;
+    margin-bottom: 0.5rem;
+}
+
+/* CRT Info Grid */
+.crt-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 8px;
+    border: 1px solid rgba(0, 212, 255, 0.2);
+}
+
+.crt-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.crt-item .label {
+    color: #a0aec0;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.crt-item .value {
+    color: #fff;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.crt-item.pcc-info .value {
+    color: #00d4ff;
+}
+
+/* Fases */
+.crt-item.phase-manipulation .value {
+    color: #ffaa00;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.crt-item.phase-distribution .value {
+    color: #00ff88;
+}
+
+.crt-item.phase-consolidation .value {
+    color: #a0aec0;
+}
+
+.crt-item.phase-exhaustion .value {
+    color: #ff3366;
+}
+
+/* Viés */
+.crt-item.bias-bullish .value {
+    color: #00ff88;
+}
+
+.crt-item.bias-bearish .value {
+    color: #ff3366;
+}
+
+/* === ALERTAS CRT === */
+.manipulation-alert,
+.turtle-soup-alert {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    animation: slideIn 0.3s ease-out, pulse 2s ease-in-out infinite;
+}
+
+.manipulation-alert {
+    background: linear-gradient(135deg, rgba(255, 170, 0, 0.1) 0%, rgba(255, 170, 0, 0.05) 100%);
+    border: 1px solid rgba(255, 170, 0, 0.3);
+    color: #ffaa00;
+}
+
+.turtle-soup-alert {
+    background: linear-gradient(135deg, rgba(0, 212, 255, 0.1) 0%, rgba(0, 212, 255, 0.05) 100%);
+    border: 1px solid rgba(0, 212, 255, 0.3);
+    color: #00d4ff;
+}
+
+.manipulation-alert .icon,
+.turtle-soup-alert .icon {
+    font-size: 1.5rem;
+}
+
+/* Marcadores da Legenda */
+.legend-items {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    color: #a0aec0;
+}
+
+.legend-marker {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.legend-marker.pcc {
+    background: linear-gradient(135deg, #00ff88 0%, #00d4ff 100%);
+    box-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+}
+
+.legend-marker.h4-open {
+    background: #00d4ff;
+    box-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+}
+
+.legend-marker.h4-close {
+    background: #00ff88;
+    box-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
+}
+
+.legend-marker.h4-high-low {
+    background: #9d4edd;
+    box-shadow: 0 0 10px rgba(157, 78, 221, 0.5);
+}
+
+.legend-marker.manipulation {
+    background: #ffaa00;
+    box-shadow: 0 0 10px rgba(255, 170, 0, 0.5);
+}
+
+.legend-marker.turtle {
+    background: #00d4ff;
+    box-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+}
+
+.legend-marker.fvg {
+    background: #9d4edd;
+    box-shadow: 0 0 10px rgba(157, 78, 221, 0.5);
+}
+
+/* === ANIMAÇÕES === */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.7;
+    }
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+    .chart-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .candle-info {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .crt-info {
+        grid-template-columns: 1fr;
+    }
+
+    .legend-items {
+        gap: 1rem;
+    }
+}

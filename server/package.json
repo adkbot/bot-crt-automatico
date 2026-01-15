@@ -1,20 +1,21 @@
 {
-  "name": "server",
-  "version": "1.0.0",
-  "description": "",
+  "name": "ai-trading-system-server",
+  "version": "2.0.0",
+  "description": "Sistema de Trading com IA - Análise em Tempo Real",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js",
+    "dev": "nodemon index.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
-    "binance-api-node": "^0.13.2",
+    "express": "^4.18.2",
+    "ws": "^8.14.2",
+    "binance-api-node": "^0.12.5",
     "cors": "^2.8.5",
-    "dotenv": "^17.2.3",
-    "express": "^5.1.0",
     "technicalindicators": "^3.1.0",
-    "ws": "^8.18.3"
+    "dotenv": "^16.3.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
   }
 }

@@ -1,65 +1,182 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* 
+ * AI TRADING SYSTEM - DESIGN SYSTEM
+ * Design moderno e profissional com tema escuro
+ */
 
 :root {
-  --bg-dark: #0a0b1e;
-  --panel-dark: #161831;
-  --neon-green: #00ff9d;
-  --neon-red: #ff0055;
+  /* Colors - Dark Theme */
+  --bg-primary: #0a0e27;
+  --bg-secondary: #141830;
+  --bg-tertiary: #1a1f3a;
+  --bg-card: #1e2442;
+  --bg-hover: #252b4a;
+
+  /* Accent Colors */
+  --accent-primary: #00d4ff;
+  --accent-secondary: #6c5ce7;
+  --accent-success: #00ff88;
+  --accent-danger: #ff3366;
+  --accent-warning: #ffaa00;
+
+  /* Gradients */
+  --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --gradient-success: linear-gradient(135deg, #00ff88 0%, #00cc6a 100%);
+  --gradient-danger: linear-gradient(135deg, #ff3366 0%, #cc0033 100%);
+  --gradient-card: linear-gradient(135deg, #1e2442 0%, #252b4a 100%);
+
+  /* Text Colors */
   --text-primary: #ffffff;
-  --text-secondary: #8b9bb4;
+  --text-secondary: #a0aec0;
+  --text-muted: #718096;
+
+  /* Borders */
+  --border-color: rgba(255, 255, 255, 0.1);
+  --border-radius: 12px;
+  --border-radius-lg: 16px;
+
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.5);
+  --shadow-glow: 0 0 20px rgba(0, 212, 255, 0.3);
+
+  /* Typography */
+  --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+  /* Spacing */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-normal: 300ms ease;
+  --transition-slow: 500ms ease;
 }
 
-body {
-  background-color: var(--bg-dark);
-  color: var(--text-primary);
-  font-family: 'Inter', sans-serif;
+* {
   margin: 0;
   padding: 0;
-  height: 100vh;
-  width: 100vw;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
   overflow: hidden;
 }
 
-.glass-panel {
-  background: rgba(22, 24, 49, 0.7);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  border-radius: 16px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+body {
+  font-family: var(--font-primary);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-.neon-green {
-  color: var(--neon-green);
-  text-shadow: 0 0 15px rgba(0, 255, 157, 0.4);
+#root {
+  width: 100%;
+  height: 100%;
 }
 
-.neon-red {
-  color: var(--neon-red);
-  text-shadow: 0 0 15px rgba(255, 0, 85, 0.4);
-}
-
-.glow-box-green {
-  box-shadow: 0 0 20px rgba(0, 255, 157, 0.1);
-  border: 1px solid rgba(0, 255, 157, 0.3);
-}
-
-.glow-box-red {
-  box-shadow: 0 0 20px rgba(255, 0, 85, 0.1);
-  border: 1px solid rgba(255, 0, 85, 0.3);
-}
-
-/* Custom Scrollbar */
+/* Scrollbar Customization */
 ::-webkit-scrollbar {
   width: 8px;
+  height: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--bg-dark);
+  background: var(--bg-secondary);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #2d3748;
+  background: var(--bg-hover);
   border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-primary);
+}
+
+/* Utility Classes */
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.gap-sm {
+  gap: var(--spacing-sm);
+}
+
+.gap-md {
+  gap: var(--spacing-md);
+}
+
+.gap-lg {
+  gap: var(--spacing-lg);
+}
+
+/* Animations */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.6;
+  }
+}
+
+@keyframes glow {
+
+  0%,
+  100% {
+    box-shadow: var(--shadow-md);
+  }
+
+  50% {
+    box-shadow: var(--shadow-glow);
+  }
+}
+
+.animate-slide-in {
+  animation: slideIn var(--transition-normal);
+}
+
+.animate-pulse {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.animate-glow {
+  animation: glow 2s ease-in-out infinite;
 }

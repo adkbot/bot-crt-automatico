@@ -1,0 +1,214 @@
+.ai-stats-card {
+    border: 2px solid var(--accent-secondary);
+    background: linear-gradient(135deg, rgba(108, 92, 231, 0.05) 0%, var(--bg-card) 100%);
+}
+
+.ai-trained-badge {
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.ai-stats-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+}
+
+/* TRAINING SECTION */
+.training-section {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.training-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.training-label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+.training-value {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--accent-secondary);
+    font-family: var(--font-mono);
+}
+
+.progress-bar {
+    width: 100%;
+    height: 10px;
+    background: var(--bg-tertiary);
+    border-radius: 5px;
+    overflow: hidden;
+    position: relative;
+}
+
+.progress-fill {
+    height: 100%;
+    background: var(--gradient-primary);
+    border-radius: 5px;
+    transition: width var(--transition-normal);
+    position: relative;
+    overflow: hidden;
+}
+
+.progress-fill::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: linear-gradient(90deg,
+            transparent,
+            rgba(255, 255, 255, 0.3),
+            transparent);
+    animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+.training-info {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: 8px;
+    background: var(--bg-tertiary);
+    border-radius: 8px;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+
+.info-icon {
+    font-size: 1rem;
+}
+
+/* AI PERFORMANCE */
+.ai-performance {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-sm);
+}
+
+.performance-item {
+    display: flex;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-md);
+    background: var(--bg-tertiary);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+    transition: var(--transition-fast);
+}
+
+.performance-item:hover {
+    border-color: var(--accent-secondary);
+    transform: translateY(-2px);
+}
+
+.perf-icon {
+    font-size: 1.5rem;
+    line-height: 1;
+}
+
+.perf-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    flex: 1;
+}
+
+.perf-label {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.perf-value {
+    font-size: 1.1rem;
+    font-weight: 700;
+    font-family: var(--font-mono);
+    color: var(--text-primary);
+}
+
+.perf-value.success {
+    color: var(--accent-success);
+}
+
+.perf-value.danger {
+    color: var(--accent-danger);
+}
+
+.perf-value.warning {
+    color: var(--accent-warning);
+}
+
+/* LEARNING STATUS */
+.learning-status {
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+}
+
+.status-message {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    font-size: 0.85rem;
+}
+
+.status-icon {
+    font-size: 1.2rem;
+    flex-shrink: 0;
+}
+
+.status-text {
+    color: var(--text-secondary);
+    line-height: 1.4;
+}
+
+.status-message.success {
+    background: rgba(0, 255, 136, 0.1);
+    padding: var(--spacing-md);
+    border-radius: 8px;
+    border: 1px solid var(--accent-success);
+}
+
+.status-message.success .status-text {
+    color: var(--accent-success);
+}
+
+.status-message.info {
+    background: rgba(0, 212, 255, 0.1);
+    padding: var(--spacing-md);
+    border-radius: 8px;
+    border: 1px solid var(--accent-primary);
+}
+
+.status-message.info .status-text {
+    color: var(--accent-primary);
+}
+
+.status-message.warning {
+    background: rgba(255, 170, 0, 0.1);
+    padding: var(--spacing-md);
+    border-radius: 8px;
+    border: 1px solid var(--accent-warning);
+}
+
+.status-message.warning .status-text {
+    color: var(--accent-warning);
+}
