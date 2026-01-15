@@ -22,16 +22,22 @@ class CRTAnalyzer {
      * Análise principal CRT
      */
     analyze(candles1m, candles4h) {
-        if (!candles4h || candles4h.length < 2) {
+        if (!candles4h || candles4h.length < 3) {
             return this.getEmptyAnalysis();
         }
 
+        // ⚠️ IMPORTANTE: Usar apenas velas FECHADAS!
+        // candles4h[length-1] = Vela ATUAL (ainda aberta) ❌
+        // candles4h[length-2] = Última vela FECHADA ✅
+
         // Atualizar velas de 4H
         this.h4Candles = candles4h;
-        this.currentH4Candle = candles4h[candles4h.length - 1];
 
-        // PCC = Fechamento da vela anterior (PONTO MAIS IMPORTANTE!)
-        const previousH4Candle = candles4h[candles4h.length - 2];
+        // 🔥 CORREÇÃO: Usar PENÚLTIMA vela (última fechada)
+        this.currentH4Candle = candles4h[candles4h.length - 2]; // Última FECHADA
+
+        // PCC = Fechamento da vela ANTERIOR à última fechada
+        const previousH4Candle = candles4h[candles4h.length - 3];
         this.pcc = previousH4Candle.close;
 
         return {
