@@ -1,9 +1,209 @@
 {
-  "concepts": {},
-  "strategies": {},
+  "concepts": {
+    "manipula_o_no_pcc": {
+      "id": "manipula_o_no_pcc",
+      "name": "Manipulação no PCC",
+      "description": "Preço manipula PCC antes de reverter na direção correta",
+      "category": "CRT",
+      "confidence": 0.85,
+      "sources": [
+        "https_youtu_be_lkfez0kuqys"
+      ],
+      "timesApplied": 0,
+      "successRate": 0,
+      "createdAt": "2026-01-15T23:51:18.189Z"
+    },
+    "rejei_o_em_premium": {
+      "id": "rejei_o_em_premium",
+      "name": "Rejeição em Premium",
+      "description": "Preço rejeita zona premium (Q4) para movimento bearish",
+      "category": "CRT",
+      "confidence": 0.8,
+      "sources": [
+        "https_youtu_be_lkfez0kuqys"
+      ],
+      "timesApplied": 0,
+      "successRate": 0,
+      "createdAt": "2026-01-15T23:51:18.193Z"
+    },
+    "suporte_em_discount": {
+      "id": "suporte_em_discount",
+      "name": "Suporte em Discount",
+      "description": "Preço encontra suporte em zona discount (Q1) para movimento bullish",
+      "category": "CRT",
+      "confidence": 0.82,
+      "sources": [
+        "https_youtu_be_lkfez0kuqys"
+      ],
+      "timesApplied": 0,
+      "successRate": 0,
+      "createdAt": "2026-01-15T23:51:18.195Z"
+    },
+    "alinhamento_com_bias_4h": {
+      "id": "alinhamento_com_bias_4h",
+      "name": "Alinhamento com Bias 4H",
+      "description": "Trade alinhado com bias da vela 4H tem maior probabilidade",
+      "category": "CRT",
+      "confidence": 0.75,
+      "sources": [
+        "https_youtu_be_lkfez0kuqys"
+      ],
+      "timesApplied": 0,
+      "successRate": 0,
+      "createdAt": "2026-01-15T23:51:18.197Z"
+    },
+    "conflu_ncia_de_n_veis_crt": {
+      "id": "conflu_ncia_de_n_veis_crt",
+      "name": "Confluência de Níveis CRT",
+      "description": "Quando múltiplos níveis convergem, aumenta a probabilidade",
+      "category": "CRT",
+      "confidence": 0.78,
+      "sources": [
+        "https_youtu_be_lkfez0kuqys"
+      ],
+      "timesApplied": 0,
+      "successRate": 0,
+      "createdAt": "2026-01-15T23:51:18.199Z"
+    },
+    "turtle_soup_pattern": {
+      "id": "turtle_soup_pattern",
+      "name": "Turtle Soup Pattern",
+      "description": "Falsa quebra seguida de reversão forte",
+      "category": "CRT",
+      "confidence": 0.88,
+      "sources": [
+        "https_youtu_be_lkfez0kuqys"
+      ],
+      "timesApplied": 0,
+      "successRate": 0,
+      "createdAt": "2026-01-15T23:51:18.200Z"
+    },
+    "fair_value_gap_fvg_": {
+      "id": "fair_value_gap_fvg_",
+      "name": "Fair Value Gap (FVG)",
+      "description": "Lacunas de preço que tendem a ser preenchidas",
+      "category": "CRT",
+      "confidence": 0.72,
+      "sources": [
+        "https_youtu_be_lkfez0kuqys"
+      ],
+      "timesApplied": 0,
+      "successRate": 0,
+      "createdAt": "2026-01-15T23:51:18.202Z"
+    },
+    "order_block_validation": {
+      "id": "order_block_validation",
+      "name": "Order Block Validation",
+      "description": "Blocos de ordem validam zonas de reversão",
+      "category": "CRT",
+      "confidence": 0.8,
+      "sources": [
+        "https_youtu_be_lkfez0kuqys"
+      ],
+      "timesApplied": 0,
+      "successRate": 0,
+      "createdAt": "2026-01-15T23:51:18.204Z"
+    }
+  },
+  "strategies": {
+    "compra_em_discount_com_suporte": {
+      "id": "compra_em_discount_com_suporte",
+      "name": "Compra em Discount com Suporte",
+      "description": "Entrar LONG quando preço está em Q1/Q2 DISCOUNT com suporte confirmado",
+      "rules": [
+        "BUY_ON_DISCOUNT_SUPPORT"
+      ],
+      "conditions": {
+        "quadrant": "DISCOUNT",
+        "bias": "BULLISH",
+        "manipulation": true
+      },
+      "riskReward": 5,
+      "sources": [
+        "https_youtu_be_lkfez0kuqys"
+      ],
+      "timesUsed": 0,
+      "winRate": 0,
+      "totalTrades": 0,
+      "profitable": 0,
+      "createdAt": "2026-01-15T23:51:18.206Z"
+    },
+    "venda_em_premium_com_rejei_o": {
+      "id": "venda_em_premium_com_rejei_o",
+      "name": "Venda em Premium com Rejeição",
+      "description": "Entrar SHORT quando preço está em Q3/Q4 PREMIUM com rejeição confirmada",
+      "rules": [
+        "SELL_ON_PREMIUM_REJECTION"
+      ],
+      "conditions": {
+        "quadrant": "PREMIUM",
+        "bias": "BEARISH",
+        "manipulation": true
+      },
+      "riskReward": 5,
+      "sources": [
+        "https_youtu_be_lkfez0kuqys"
+      ],
+      "timesUsed": 0,
+      "winRate": 0,
+      "totalTrades": 0,
+      "profitable": 0,
+      "createdAt": "2026-01-15T23:51:18.210Z"
+    },
+    "trade_no_alinhamento": {
+      "id": "trade_no_alinhamento",
+      "name": "Trade no Alinhamento",
+      "description": "Operar apenas quando alinhado com bias da 4H",
+      "rules": [
+        "ALIGN_WITH_H4_BIAS"
+      ],
+      "conditions": {
+        "bias": "ANY"
+      },
+      "riskReward": 3,
+      "sources": [
+        "https_youtu_be_lkfez0kuqys"
+      ],
+      "timesUsed": 0,
+      "winRate": 0,
+      "totalTrades": 0,
+      "profitable": 0,
+      "createdAt": "2026-01-15T23:51:18.212Z"
+    },
+    "entrada_em_turtle_soup": {
+      "id": "entrada_em_turtle_soup",
+      "name": "Entrada em Turtle Soup",
+      "description": "Entrar na reversão após falsa quebra de nível importante",
+      "rules": [
+        "ENTER_ON_TURTLE_SOUP"
+      ],
+      "conditions": {
+        "manipulation": true
+      },
+      "riskReward": 6,
+      "sources": [
+        "https_youtu_be_lkfez0kuqys"
+      ],
+      "timesUsed": 0,
+      "winRate": 0,
+      "totalTrades": 0,
+      "profitable": 0,
+      "createdAt": "2026-01-15T23:51:18.214Z"
+    }
+  },
   "patterns": {},
   "performance": {},
-  "videos": {},
-  "lastUpdate": "2026-01-15T21:50:05.447Z",
-  "totalLearnings": 0
+  "videos": {
+    "https_youtu_be_lkfez0kuqys": {
+      "id": "https_youtu_be_lkfez0kuqys",
+      "url": "https://youtu.be/lkfEz0KuQYs",
+      "title": "CRT Trading Strategy - Candle Range Theory",
+      "processedAt": "2026-01-15T23:51:18.184Z",
+      "conceptsExtracted": 8,
+      "strategiesExtracted": 4,
+      "points": 2500
+    }
+  },
+  "lastUpdate": "2026-01-15T23:51:18.214Z",
+  "totalLearnings": 12
 }
