@@ -10,8 +10,10 @@
 
 /* HEADER */
 .app-header {
-    height: 70px;
-    padding: 0 var(--spacing-lg);
+    height: 55px;
+    /* 🎯 REDUZIDO de 70px */
+    padding: 0 var(--spacing-md);
+    /* 🎯 REDUZIDO */
     background: var(--bg-secondary);
     border-bottom: 1px solid var(--border-color);
     display: flex;
@@ -24,11 +26,12 @@
 .header-left {
     display: flex;
     align-items: center;
-    gap: var(--spacing-lg);
+    gap: var(--spacing-md);
 }
 
 .app-header h1 {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
+    /* 🎯 REDUZIDO de 1.5rem */
     font-weight: 700;
     background: var(--gradient-primary);
     -webkit-background-clip: text;
@@ -40,15 +43,18 @@
 }
 
 .app-header .icon {
-    font-size: 2rem;
+    font-size: 1.7rem;
+    /* 🎯 REDUZIDO de 2rem */
     filter: grayscale(0);
     animation: pulse 2s ease-in-out infinite;
 }
 
 .status-badge {
-    padding: 6px 12px;
+    padding: 4px 10px;
+    /* 🎯 REDUZIDO */
     border-radius: 20px;
-    font-size: 0.85rem;
+    font-size: 0.8rem;
+    /* 🎯 REDUZIDO */
     font-weight: 600;
     display: flex;
     align-items: center;
@@ -80,8 +86,10 @@
 .settings-button {
     background: linear-gradient(135deg, rgba(0, 212, 255, 0.1) 0%, rgba(0, 255, 136, 0.1) 100%);
     border: 1px solid rgba(0, 212, 255, 0.3);
-    border-radius: 12px;
-    padding: 12px;
+    border-radius: 10px;
+    /* 🎯 REDUZIDO */
+    padding: 10px;
+    /* 🎯 REDUZIDO */
     cursor: pointer;
     transition: all 0.3s ease;
     display: flex;
@@ -97,7 +105,8 @@
 }
 
 .settings-icon {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
+    /* 🎯 REDUZIDO */
     transition: transform 0.5s ease;
 }
 
@@ -111,8 +120,10 @@
     display: grid;
     grid-template-columns: 280px 1fr 320px;
     /* Reduzido de 320px e 380px */
-    gap: var(--spacing-md);
-    padding: var(--spacing-md);
+    gap: var(--spacing-sm);
+    /* 🎯 REDUZIDO */
+    padding: var(--spacing-sm);
+    /* 🎯 REDUZIDO */
     overflow: hidden;
 }
 
@@ -120,12 +131,12 @@
 .sidebar {
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-sm);
-    /* Reduzido para compactar */
+    gap: var(--spacing-xs);
+    /* 🎯 REDUZIDO para compactar */
     overflow-y: auto;
     padding-right: 4px;
-    max-height: calc(100vh - 120px);
-    /* Limitar altura */
+    max-height: calc(100vh - 100px);
+    /* 🎯 AJUSTADO */
 }
 
 .sidebar::-webkit-scrollbar {
@@ -136,7 +147,8 @@
 .main-content {
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-md);
+    gap: var(--spacing-sm);
+    /* 🎯 REDUZIDO */
     overflow: hidden;
 }
 
@@ -182,8 +194,8 @@
     background: var(--bg-card);
     border: 1px solid var(--border-color);
     border-radius: var(--border-radius);
-    padding: 12px;
-    /* Reduzido de var(--spacing-lg) */
+    padding: 10px;
+    /* 🎯 REDUZIDO de 12px */
     box-shadow: var(--shadow-sm);
     transition: var(--transition-normal);
     animation: slideIn var(--transition-normal);
@@ -200,15 +212,16 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 10px;
-    /* Reduzido */
-    padding-bottom: 8px;
-    /* Reduzido */
+    margin-bottom: 8px;
+    /* 🎯 REDUZIDO */
+    padding-bottom: 6px;
+    /* 🎯 REDUZIDO */
     border-bottom: 1px solid var(--border-color);
 }
 
 .card-title {
-    font-size: 1.1rem;
+    font-size: 1rem;
+    /* 🎯 REDUZIDO de 1.1rem */
     font-weight: 600;
     color: var(--text-primary);
     display: flex;
@@ -217,7 +230,8 @@
 }
 
 .card-title .icon {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
+    /* 🎯 REDUZIDO de 1.3rem */
 }
 
 /* BUTTON COMPONENT */
