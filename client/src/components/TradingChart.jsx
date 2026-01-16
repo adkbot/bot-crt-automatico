@@ -84,6 +84,10 @@ export default function TradingChart({ candles, candles4h, analysis, currentTrad
         };
     }, []);
 
+    // 🔥 Dedupe: não redesenhar se já desenhou a mesma coisa
+    const lastDrawKeyRef = useRef("");
+    const drawTimerRef = useRef(null);
+
     useEffect(() => {
         if (!candleSeriesRef.current || !candles || candles.length === 0) return;
 
@@ -111,12 +115,32 @@ export default function TradingChart({ candles, candles4h, analysis, currentTrad
         try {
             candleSeriesRef.current.setData(formattedData);
 
-            // Adicionar marcações CRT
-            addCRTMarkers();
-            addCRTLines();
+            // 🔥 Debounce: esperar 200ms antes de redesenhar
+            clearTimeout(drawTimerRef.current);
+
+            drawTimerRef.current = setTimeout(() => {
+                // 🔥 Criar chave única baseada nos dados CRT
+                const drawKey = crt ? `${crt.pcc}-${crt.bias?.direction}-${candles.length}` : '';
+
+                // ✅ Só redesenhar se a chave mudou
+                if (lastDrawKeyRef.current !== drawKey) {
+                    console.log('🎨 Desenhando CRT (nova chave):', drawKey);
+                    lastDrawKeyRef.current = drawKey;
+
+                    // Adicionar marcações CRT
+                    addCRTMarkers();
+                    addCRTLines();
+                } else {
+                    console.log('⏭️ Pulando redesenho (mesma chave)');
+                }
+            }, 200);
+
         } catch (error) {
             console.error('Erro ao atualizar gráfico:', error);
         }
+
+        // Cleanup do timer
+        return () => clearTimeout(drawTimerRef.current);
 
     }, [candles, candles4h, analysis, currentTrade]);
 
@@ -215,14 +239,6 @@ export default function TradingChart({ candles, candles4h, analysis, currentTrad
             // Estender linha até MUITO à frente (240 minutos = 4 horas)
             const endTime = startTime + (240 * 60); // 240 velas de 1m à frente
 
-            console.log('🔥 CRT startTime:', {
-                totalCandles: candles.length,
-                lastClosedTime: new Date(lastClosedCandle.time).toLocaleTimeString(),
-                startTime,
-                endTime,
-                extension: '240 minutos (4h)'
-            });
-
             // 🎯 LINHA PCC (Previous Candle Close) - MAIS IMPORTANTE!
             if (crt.pcc && typeof crt.pcc === 'number' && !isNaN(crt.pcc)) {
                 const biasColor = crt.bias?.direction === 'BULLISH' ? '#00ff88' : '#ff3366';
@@ -236,22 +252,15 @@ export default function TradingChart({ candles, candles4h, analysis, currentTrad
                     lastValueVisible: true,
                 });
 
-                console.log('📊 PCC Value:', crt.pcc);
-
                 // Criar linha: da vela fechada até muito à frente
                 let pccData = [
                     { time: startTime, value: crt.pcc },
                     { time: endTime, value: crt.pcc }
                 ];
 
-                console.log('📊 PCC Data:', pccData);
-
                 if (pccData.length > 0) {
-                    console.log('✅ Desenhando PCC Line estendida');
                     pccLine.setData(pccData);
                     pccLineRef.current = pccLine;
-                } else {
-                    console.error('❌ Sem dados para PCC Line!');
                 }
             }
 
