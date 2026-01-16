@@ -1,0 +1,22 @@
+# ML Engine - Dependências Python
+# Sistema Híbrido LSTM + XGBoost
+
+# Deep Learning
+tensorflow==2.15.0
+keras==2.15.0
+
+# Gradient Boosting
+xgboost==2.0.3
+
+# Data Processing
+numpy==1.24.3
+pandas==2.1.4
+scikit-learn==1.3.2
+
+# API
+flask==3.0.0
+flask-cors==4.0.0
+
+# Utilities
+joblib==1.3.2
+python-dotenv==1.0.0

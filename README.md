@@ -1,355 +1,397 @@
-# 🤖 AI TRADING SYSTEM - Sistema Completo de Trading com IA
+# 🚀 BOT CRT AUTOMÁTICO - Sistema Completo ML
 
-Sistema profissional de trading que analisa o mercado em **tempo real** usando **Inteligência Artificial** e técnicas de **Smart Money Concepts (SMC)**.
-
-![Status](https://img.shields.io/badge/status-active-success.svg)
-![Version](https://img.shields.io/badge/version-2.0.0-blue.svg)
-![License](https://img.shields.io/badge/license-MIT-green.svg)
+Sistema avançado de trading automático com **Machine Learning Híbrido (LSTM + XGBoost)** e estratégia CRT (Candle Range Theory).
 
 ---
 
-## 🌟 Características
+## 🎯 **VISÃO GERAL**
 
-### 🧠 **Inteligência Artificial**
-- ✅ Aprende padrões do mercado automaticamente usando **Redes Neurais**
-- ✅ Melhora as decisões ao longo do tempo com cada trade executado
-- ✅ Sistema adaptativo que se ajusta às condições do mercado
-- ✅ Treinamento automático a cada 10 novos trades
-
-### 📊 **Análise Smart Money Concepts (SMC)**
-- ✅ Detecção de **Break of Structure (BOS)** e **Change of Character (CHOCH)**
-- ✅ Identificação de **Order Blocks (OB)** institucionais
-- ✅ Detecção de **Fair Value Gaps (FVG)**
-- ✅ Reconhecimento de **Liquidity Sweeps**
-- ✅ Zonas **Premium/Discount** (Fibonacci)
-- ✅ Viés de mercado automático (Bullish/Bearish/Neutral)
-
-### 📈 **Gráfico Profissional**
-- ✅ Gráfico de velas em tempo real usando **Lightweight Charts**
-- ✅ **Marcações SMC visíveis** direto no gráfico
-- ✅ Indicadores OHLC com variação percentual
-- ✅ Legenda interativa com todos os padrões detectados
-- ✅ Design moderno e responsivo
-
-### 💹 **Dashboard Completo**
-- ✅ **Saldo da carteira** com lucro/prejuízo em tempo real
-- ✅ **Estatísticas detalhadas**: Win Rate, Total de Trades, Lucro Total
-- ✅ **Operação atual** com entrada, SL, TP e confiança
-- ✅ **Histórico de trades** com resultados
-- ✅ **Status da IA** com progresso de aprendizado
-
-### ⚙️ **Controles e Configurações**
-- ✅ Seleção de **par** (BTCUSDT, ETHUSDT, etc.)
-- ✅ Seleção de **timeframe** (1m, 5m, 15m, 1h, 4h, 1d)
-- ✅ Toggle de **Auto-Trading** ON/OFF
-- ✅ Fechamento manual de operações
-- ✅ WebSocket em tempo real
+```
+┌───────────────────────────────────────────────────────────┐
+│              BOT CRT AUTOMÁTICO                           │
+│              Sistema Híbrido de Trading                    │
+├───────────────────────────────────────────────────────────┤
+│                                                           │
+│  🌐 FRONTEND (React + Vite)                               │
+│  │                                                        │
+│  ├─ Interface compactada e profissional                  │
+│  ├─ Gráfico real-time com CRT markings                   │
+│  ├─ Dashboard de estatísticas                            │
+│  └─ Controles de trading                                 │
+│                                                           │
+│  ⚙️ BACKEND (Node.js + Express)                           │
+│  │                                                        │
+│  ├─ WebSocket para dados real-time                       │
+│  ├─ CRT Analyzer (Candle Range Theory)                   │
+│  ├─ Risk Manager                                         │
+│  ├─ Trade Executor (Binance Futures)                     │
+│  └─ Integração com ML Engine                             │
+│                                                           │
+│  🧠 ML ENGINE (Python + TensorFlow + XGBoost)             │
+│  │                                                        │
+│  ├─ LSTM: Memória temporal de padrões                    │
+│  ├─ XGBoost: Decisão final inteligente                   │
+│  ├─ Aprendizado contínuo de vídeos                       │
+│  └─ API Flask para comunicação                           │
+│                                                           │
+│  💾 MEMÓRIA IA (Persistente)                              │
+│  │                                                        │
+│  ├─ Conceitos CRT aprendidos                             │
+│  ├─ Estratégias de trading                               │
+│  ├─ Performance histórica                                │
+│  └─ Vídeos processados                                   │
+│                                                           │
+└───────────────────────────────────────────────────────────┘
+```
 
 ---
 
-## 🚀 Instalação e Configuração
+## ✨ **FEATURES PRINCIPAIS**
 
-### Pré-requisitos
+### **1. 🧠 ML Híbrido LSTM + XGBoost**
+- **LSTM**: Analisa sequências de 60 velas
+- **XGBoost**: Combina LSTM + Indicadores + CRT
+- **26 features** de entrada
+- **3 outputs**: BUY, SELL, HOLD
+- **Threshold**: 65% confidence mínima
 
-- **Node.js** 16+ ([Download](https://nodejs.org/))
-- **npm** ou **yarn**
-- Conta na **Binance** com API Key ([Criar API](https://www.binance.com/en/my/settings/api-management))
+### **2. 📊 CRT (Candle Range Theory)**
+- Análise de vela 4H
+- PCC (Previous Candle Close)
+- Quadrantes Fibonacci (Q1-Q4)
+- Zonas Premium/Discount
+- Detecção de manipulação
+- Turtle Soup patterns
 
-### 1️⃣ Configurar Backend
+### **3. 💰 Binance Futures Integration**
+- API oficial Binance
+- Alavancagem: 10x
+- Stop Loss automático
+- Take Profit automático
+- Risk/Reward: 5:1 mínimo
+
+### **4. 🎓 Aprendizado Contínuo**
+- Processa vídeos do YouTube
+- Extrai conceitos e estratégias
+- Atualiza modelos em tempo real
+- Aprende com cada trade
+
+### **5. 📈 Interface Profissional**
+- Gráfico compacto (600px)
+- Cards laterais otimizados
+- Real-time updates
+- Estatísticas detalhadas
+
+---
+
+## 📦 **INSTALAÇÃO**
+
+### **Pré-requisitos**
+- Node.js 16+
+- Python 3.9+
+- Conta Binance Futures
+- 4GB RAM mínimo
+
+### **1. Backend (Node.js)**
 
 ```bash
-# Navegar para a pasta do servidor
 cd server
-
-# Instalar dependências
 npm install
-
-# Criar arquivo .env
-copy .env.example .env
-
-# Editar .env com suas credenciais da Binance
-notepad .env
 ```
 
-**Edite o arquivo `.env`:**
+Configurar `.env`:
 ```env
-BINANCE_API_KEY=sua_api_key_aqui
-BINANCE_API_SECRET=sua_api_secret_aqui
+BINANCE_API_KEY=sua_chave
+BINANCE_API_SECRET=seu_secret
 PORT=3001
-MIN_CONFIDENCE=0.75
-MAX_RISK_PER_TRADE=0.02
-ENABLE_AUTO_TRADING=false
 ```
 
-### 2️⃣ Configurar Frontend
+### **2. Frontend (React)**
 
 ```bash
-# Navegar para a pasta do cliente
-cd ../client
-
-# Instalar dependências
+cd client
 npm install
+```
+
+### **3. ML Engine (Python)**
+
+```bash
+cd ml-engine
+install.bat
 ```
 
 ---
 
-## ▶️ Como Executar
+## 🚀 **INICIAR SISTEMA**
 
-### Iniciar o Sistema Completo
-
-**Opção 1: Iniciar ambos manualmente**
+### **Opção 1: Tudo de uma vez**
 
 ```bash
-# Terminal 1 - Backend
+# No diretório raiz
+start-all.bat
+```
+
+### **Opção 2: Separado**
+
+**Terminal 1 - Backend:**
+```bash
 cd server
 npm start
+```
 
-# Terminal 2 - Frontend
+**Terminal 2 - Frontend:**
+```bash
 cd client
 npm run dev
 ```
 
-**Opção 2: Script único (criar arquivo `start.bat` na raiz)**
-
-```batch
-@echo off
-echo 🚀 Iniciando AI Trading System...
-
-start cmd /k "cd server && npm start"
-timeout /t 3 /nobreak >nul
-start cmd /k "cd client && npm run dev"
-
-echo ✅ Sistema iniciado!
-echo 📡 Backend: http://localhost:3001
-echo 🌐 Frontend: http://localhost:3000
-```
-
-### Acessar o Sistema
-
-- **Frontend**: http://localhost:3000
-- **Backend API**: http://localhost:3001
-
----
-
-## 📖 Como Usar
-
-### 1. **Iniciar o Sistema**
-Execute o backend e frontend conforme as instruções acima.
-
-### 2. **Configurar o Par e Timeframe**
-- No header superior, selecione o **par** que deseja analisar (ex: BTCUSDT)
-- Escolha o **timeframe** (recomendado: 1m ou 5m para testes)
-
-### 3. **Ativar Auto-Trading (Opcional)**
-- Clique no botão **"Auto Trading OFF"** para ativar
-- O sistema começará a fazer entradas automaticamente quando detectar sinais de alta confiança
-- ⚠️ **ATENÇÃO**: Comece com `ENABLE_AUTO_TRADING=false` no `.env` até entender o sistema
-
-### 4. **Monitorar Análises**
-- **Gráfico Central**: Veja as velas em tempo real com marcações SMC
-- **Sidebar Esquerda**: Monitore saldo, estatísticas e operação atual
-- **Sidebar Direita**: Veja sinais detectados, trades recentes e status da IA
-
-### 5. **Aprendizado da IA**
-- A IA precisa de **50 trades** para fazer o treinamento inicial
-- Depois disso, ela retreina automaticamente a cada 10 trades
-- Acompanhe o progresso no card **"Status da IA"**
-
-### 6. **Fechar Operação Manualmente**
-- Se houver uma operação ativa, clique em **"Fechar Manualmente"** no painel direito
-
----
-
-## 🎯 Estratégia de Trading
-
-### Como Funciona
-
-1. **Análise Contínua**: O sistema analisa cada vela nova em tempo real
-2. **Detecção de Padrões**: Identifica padrões SMC (BOS, OB, FVG, Sweeps)
-3. **Cálculo de Indicadores**: RSI, MACD, Bollinger Bands, Volume
-4. **Previsão da IA**: Combina tudo e prevê se deve entrar ou não
-5. **Execução**: Se confiança > 75%, executa a operação automaticamente (se auto-trading estiver ativo)
-
-### Lógica de Entrada
-
-✅ **Sinal de Compra (LONG)** quando:
-- BOS Bullish ou CHOCH Bullish confirmado
-- Order Block Bullish presente
-- FVG Bullish ou Liquidity Sweep Bullish
-- RSI < 30 (sobrevenda)
-- MACD positivo
-- Confiança da IA > 75%
-
-❌ **Sinal de Venda (SHORT)** quando:
-- BOS Bearish ou CHOCH Bearish confirmado
-- Order Block Bearish presente
-- FVG Bearish ou Liquidity Sweep Bearish
-- RSI > 70 (sobrecompra)
-- MACD negativo
-- Confiança da IA > 75%
-
-### Gestão de Risco
-
-- **Stop Loss**: Calculado automaticamente usando ATR (1.5x)
-- **Take Profit**: Baseado no lucro esperado pela IA (mínimo 2%)
-- **Risco por Trade**: Configurável no `.env` (padrão: 2% do saldo)
-
----
-
-## 🔧 Configurações Avançadas
-
-### Arquivo `.env` do Backend
-
-```env
-# API Binance
-BINANCE_API_KEY=sua_api_key
-BINANCE_API_SECRET=sua_secret
-
-# Servidor
-PORT=3001
-NODE_ENV=development
-
-# Trading
-MIN_CONFIDENCE=0.75          # Confiança mínima para entrada (0-1)
-MAX_RISK_PER_TRADE=0.02      # Risco máximo por trade (2%)
-ENABLE_AUTO_TRADING=false    # Auto-trading ativo? (true/false)
-```
-
-### Ajustar Confiança Mínima
-
-Para ser mais **conservador** (menos trades, mais precisão):
-```env
-MIN_CONFIDENCE=0.85  # 85% de confiança mínima
-```
-
-Para ser mais **agressivo** (mais trades, menos precisão):
-```env
-MIN_CONFIDENCE=0.65  # 65% de confiança mínima
+**Terminal 3 - ML Engine:**
+```bash
+cd ml-engine
+start-ml-engine.bat
 ```
 
 ---
 
-## 📊 Estrutura do Projeto
+## 🎓 **TREINAR ML MODELS**
+
+### **Opção 1: Com dados históricos**
+
+```javascript
+// Via API
+const response = await fetch('http://localhost:5000/train', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+        candles: historical_candles,  // Array de velas
+        labels: labels,  // 0=BUY, 1=SELL, 2=HOLD
+        indicators: indicators_data,
+        crt: crt_data,
+        epochs: 50
+    })
+});
+```
+
+### **Opção 2: Processar vídeo**
+
+```javascript
+// No servidor Node.js
+node processVideo.js
+```
+
+Isso vai:
+1. Extrair conceitos do vídeo
+2. Criar estratégias
+3. Salvar na memória IA
+4. Modelos ficam prontos para uso
+
+---
+
+## 📊 **COMO FUNCIONA**
+
+### **Fluxo de Decisão:**
 
 ```
-binance-prediction-system/
-├── server/                    # Backend Node.js
+1. Mercado atualiza (nova vela)
+   ↓
+2. CRT Analyzer processa:
+   - Calcula PCC
+   - Identifica quadrante
+   - Detecta manipulação
+   - Calcula confidence
+   ↓
+3. ML Engine analisa:
+   - LSTM: sequência de 60 velas
+   - XGBoost: combina tudo
+   - Output: BUY/SELL/HOLD + confidence
+   ↓
+4. Decisão final:
+   - Confidence > 65%?
+   - Risk/Reward > 5:1?
+   - Em zona correta (Discount/Premium)?
+   ↓
+5. Executa trade (se aprovado):
+   - Entry automático
+   - Stop Loss
+   - Take Profit
+   ↓
+6. Monitora e aprende:
+   - Registra resultado
+   - Atualiza modelos
+   - Melhora para próximo trade
+```
+
+---
+
+## 🎯 **ESTRATÉGIAS IMPLEMENTADAS**
+
+### **1. Compra em Discount com Suporte**
+- Zona: Q1 ou Q2 DISCOUNT
+- Sinal: Suporte detectado
+- Bias: BULLISH
+- R:R: 5:1
+
+### **2. Venda em Premium com Rejeição**
+- Zona: Q3 ou Q4 PREMIUM
+- Sinal: Rejeição detectada
+- Bias: BEARISH
+- R:R: 5:1
+
+### **3. Turtle Soup Entry**
+- Pattern: Falsa quebra
+- Reversão confirmada
+- Alta confidence
+- R:R: 6:1
+
+### **4. Trade Alinhado com Bias**
+- Sempre alinhado com 4H
+- Confluência de níveis
+- R:R: 3:1 mínimo
+
+---
+
+## 📈 **PERFORMANCE ESPERADA**
+
+### **Métricas Alvo:**
+- **Win Rate**: 70-80%
+- **Profit Factor**: 2.5+
+- **Risk/Reward**: 5:1 médio
+- **Max Drawdown**: <15%
+
+### **Dados Reais:**
+- Sistema em desenvolvimento
+- Performance melhora com aprendizado
+- Mais trades = melhor modelo
+
+---
+
+## ⚙️ **CONFIGURAÇÕES**
+
+### **Risk Management:**
+```javascript
+{
+    maxRiskPerTrade: 0.02,  // 2% por trade
+    leverage: 10,
+    minRiskReward: 5,
+    maxDailyLoss: 0.10  // 10% máximo por dia
+}
+```
+
+### **ML Engine:**
+```python
+{
+    sequence_length: 60,  // Velas para LSTM
+    confidence_threshold: 0.65,  // 65% mínimo
+    features: 26,  // Total de features
+    auto_retrain: False  // Retreinar automaticamente
+}
+```
+
+---
+
+## 🔧 **ESTRUTURA DO PROJETO**
+
+```
+bot-crt-automatico/
+├── server/              # Backend Node.js
+│   ├── index.js
 │   ├── src/
 │   │   ├── ai/
-│   │   │   └── marketLearner.js      # Rede Neural (Brain.js)
-│   │   └── analysis/
-│   │       └── smcAnalyzer.js        # Análise SMC
-│   ├── index.js               # Servidor principal
-│   ├── package.json
-│   └── .env                   # Configurações (não commitar!)
+│   │   │   ├── AIMemory.js
+│   │   │   └── KnowledgeApplicator.js
+│   │   ├── analysis/
+│   │   │   └── CRTAnalyzer.js
+│   │   └── services/
+│   │       ├── riskManager.js
+│   │       └── BinanceTradeExecutor.js
+│   └── data/
+│       └── ai-memory.json
 │
-├── client/                    # Frontend React
+├── client/              # Frontend React
 │   ├── src/
 │   │   ├── components/
-│   │   │   ├── Dashboard.jsx        # Dashboard do saldo
-│   │   │   ├── TradingChart.jsx     # Gráfico profissional
-│   │   │   ├── TradePanel.jsx       # Painel de trades
-│   │   │   ├── ControlPanel.jsx     # Controles
-│   │   │   └── AIStats.jsx          # Estatísticas da IA
-│   │   ├── App.jsx            # App principal
-│   │   ├── App.css
-│   │   ├── index.css          # Design System
-│   │   └── main.jsx
-│   ├── index.html
-│   ├── package.json
-│   └── vite.config.js
+│   │   │   ├── TradingChart.jsx
+│   │   │   ├── Dashboard.jsx
+│   │   │   ├── AIStats.jsx
+│   │   │   └── TradePanel.jsx
+│   │   └── App.jsx
+│   └── index.html
 │
-└── README.md                  # Este arquivo
+├── ml-engine/           # ML Python
+│   ├── lstm_model.py
+│   ├── xgboost_model.py
+│   ├── hybrid_engine.py
+│   ├── api.py
+│   └── requirements.txt
+│
+└── docs/
+    ├── README.md
+    └── SISTEMA_MEMORIA_IA.md
 ```
 
 ---
 
-## 🛡️ Segurança
+## 🆘 **TROUBLESHOOTING**
 
-### ⚠️ **IMPORTANTE**
+### **"Invalid API Key"**
+- Verificar `.env` com chaves corretas
+- Regenerar chaves no Binance
 
-1. **NUNCA compartilhe** suas credenciais da Binance
-2. **NUNCA commite** o arquivo `.env` no Git
-3. **Use API Keys** com permissões limitadas (somente leitura + trading, sem saques)
-4. **Teste primeiro** em modo paper trading ou com valores baixos
-5. **Configure IP Whitelist** na Binance para sua API Key
+### **"ML Engine not ready"**
+- Treinar modelos primeiro
+- Verificar se Python API está rodando
 
-### Configurar API Key na Binance
+### **"Insufficient balance"**
+- Depositar USDT na conta Futures
+- Mínimo recomendado: $100
 
-1. Acesse: https://www.binance.com/en/my/settings/api-management
-2. Crie uma nova API Key
-3. Marque apenas: **"Enable Reading"** e **"Enable Spot & Margin Trading"**
-4. **NÃO marque**: "Enable Withdrawals"
-5. Configure **IP Access Restriction** com seu IP
-6. Copie API Key e Secret para o `.env`
-
----
-
-## 🐛 Troubleshooting
-
-### Erro: "Invalid Api-Key"
-- Verifique se copiou corretamente a API Key e Secret
-- Confirme que a API Key tem permissões de Trading habilitadas
-- Teste em modo de leitura primeiro (`ENABLE_AUTO_TRADING=false`)
-
-### Erro: "Cannot find module 'brain.js'"
-```bash
-cd server
-npm install
-```
-
-### Frontend não conecta ao Backend
-- Verifique se o backend está rodando na porta 3001
-- Confirme que não há firewall bloqueando
-- Tente: `curl http://localhost:3001/health`
-
-### IA não está aprendendo
-- A IA precisa de **50 trades** para o treinamento inicial
-- Verifique se os trades estão sendo executados
-- Acompanhe o progresso no card "Status da IA"
+### **Win Rate muito baixo**
+- Treinar com mais dados
+- Processar mais vídeos
+- Ajustar threshold de confidence
 
 ---
 
-## 📈 Próximas Melhorias
+## 📚 **DOCUMENTAÇÃO ADICIONAL**
 
-- [ ] Backtesting histórico
-- [ ] Múltiplos pares simultâneos
-- [ ] Notificações via Telegram
-- [ ] Gráfico TradingView oficial embed
-- [ ] Export de relatórios PDF
-- [ ] Modo paper trading integrado
-- [ ] Otimização de hiperparâmetros da IA
+- [ML Engine README](ml-engine/README.md)
+- [Sistema de Memória IA](SISTEMA_MEMORIA_IA.md)
+- [Problema Crítico IA](PROBLEMA_CRITICO_IA.md)
+- [Marcações CRT](MARCACOES_CRT_FINAIS.md)
 
 ---
 
-##  Aviso Legal
+## 🎯 **ROADMAP**
 
-⚠️ **Este sistema é para fins educacionais**. Trading de criptomoedas envolve **alto risco** e você pode perder todo seu capital investido.
+### **v1.0 - Atual** ✅
+- Sistema híbrido LSTM + XGBoost
+- CRT analysis completa
+- Integração Binance Futures
+- Memória IA persistente
 
-- Não garanto lucros
-- Use por sua conta e risco
-- Teste extensivamente antes de usar com dinheiro real
-- Comece com valores baixos
+### **v2.0 - Próximo**
+- [ ] Aprendizado incremental
+- [ ] Multi-timeframe analysis
+- [ ] Backtesting engine
+- [ ] Dashboard de performance
 
-**Desenvolvedor não se responsabiliza por perdas financeiras.**
-
----
-
-## 📝 Licença
-
-MIT License - Sinta-se livre para usar e modificar!
-
----
-
-## 👨‍💻 Suporte
-
-Para dúvidas ou problemas:
-1. Verifique este README completo
-2. Revise os logs do console do backend
-3. Teste com `ENABLE_AUTO_TRADING=false` primeiro
+### **v3.0 - Futuro**
+- [ ] Multiple pairs
+- [ ] Portfolio management
+- [ ] Mobile app
+- [ ] Cloud deployment
 
 ---
 
-**Criado com ❤️ por um sistema de IA profissional**
+## 📞 **CONTATO**
 
-🚀 **Bons trades!**
+**Desenvolvido por**: ADK Bot  
+**GitHub**: https://github.com/adkbot/bot-crt-automatico  
+**Versão**: 1.0.0  
+**Data**: Janeiro 2026  
+
+---
+
+**🚀 Sistema pronto para transformar seu trading!**
+
+**✨ Machine Learning + CRT + Execução Automática = Lucro Consistente**
