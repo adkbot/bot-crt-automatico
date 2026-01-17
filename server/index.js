@@ -488,9 +488,9 @@ async function executeTrade(signal) {
         };
 
         // 🚫 Bloquear trade se IA não confia
-        if (aiEnhancements.adjustedConfidence < 0.4) {
+        if (aiEnhancements.adjustedConfidence < 0.6) {  // 🔧 AUMENTADO: 40% → 60%
             console.log(`\n⚠️ IA BLOQUEOU TRADE: Confidence muito baixa (${(aiEnhancements.adjustedConfidence * 100).toFixed(1)}%)`);
-            console.log(`   Mínimo necessário: 40%`);
+            console.log(`   Mínimo necessário: 60%`);  // 🔧 ATUALIZADO
             return;
         }
 
@@ -504,9 +504,29 @@ async function executeTrade(signal) {
         console.log('⚠️ Continuando sem análise da IA...\n');
     }
 
+    // 💰 VALIDAÇÃO DE SALDO MÍNIMO
+    const minBalance = 10; // Mínimo $10 para operar
+    if (state.balance.available < minBalance) {
+        console.log(`\n⚠️ SALDO INSUFICIENTE PARA OPERAR`);
+        console.log(`   Disponível: $${state.balance.available.toFixed(2)}`);
+        console.log(`   Mínimo necessário: $${minBalance.toFixed(2)}`);
+        console.log(`   ❌ Trade cancelado!\n`);
+        return;
+    }
+
     const riskAmount = state.balance.available * state.config.maxRiskPerTrade;
     const riskPerUnit = Math.abs(signal.entry - signal.stopLoss);
     const quantity = (riskAmount / riskPerUnit).toFixed(3); // Arredondar para 3 casas
+
+    // 🚫 VALIDAÇÃO DE QUANTIDADE MÍNIMA
+    if (parseFloat(quantity) <= 0.001) {  // Mínimo da Binance
+        console.log(`\n⚠️ QUANTIDADE MUITO PEQUENA`);
+        console.log(`   Calculada: ${quantity}`);
+        console.log(`   Mínimo: 0.001`);
+        console.log(`   💡 Aumente o saldo para pelo menos $100`);
+        console.log(`   ❌ Trade cancelado!\n`);
+        return;
+    }
 
     // 🚀 EXECUTAR TRADE REAL NA BINANCE
     console.log('\n' + '='.repeat(50));
