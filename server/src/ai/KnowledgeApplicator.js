@@ -44,7 +44,7 @@ class KnowledgeApplicator {
         const enhancements = {
             adjustedConfidence: crtData.confidence || 0.5,
             appliedConcepts: [],
-            suggestionsweet: [],
+            suggestions: [], // 🔧 CORREÇÃO: era "suggestionsweet" (typo)
             warnings: []
         };
 

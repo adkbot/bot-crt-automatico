@@ -189,6 +189,40 @@
       "totalTrades": 0,
       "profitable": 0,
       "createdAt": "2026-01-15T23:51:18.214Z"
+    },
+    "compra_em_discount": {
+      "id": "compra_em_discount",
+      "name": "Compra em Discount",
+      "rules": [
+        "BUY_ON_DISCOUNT_SUPPORT"
+      ],
+      "conditions": {},
+      "riskReward": 5,
+      "sources": [
+        "https_youtu_be_lkfez0kuqys"
+      ],
+      "timesUsed": 0,
+      "winRate": 0,
+      "totalTrades": 0,
+      "profitable": 0,
+      "createdAt": "2026-01-17T02:03:26.756Z"
+    },
+    "venda_em_premium": {
+      "id": "venda_em_premium",
+      "name": "Venda em Premium",
+      "rules": [
+        "SELL_ON_PREMIUM_REJECTION"
+      ],
+      "conditions": {},
+      "riskReward": 5,
+      "sources": [
+        "https_youtu_be_lkfez0kuqys"
+      ],
+      "timesUsed": 0,
+      "winRate": 0,
+      "totalTrades": 0,
+      "profitable": 0,
+      "createdAt": "2026-01-17T02:03:26.758Z"
     }
   },
   "patterns": {},
@@ -198,12 +232,12 @@
       "id": "https_youtu_be_lkfez0kuqys",
       "url": "https://youtu.be/lkfEz0KuQYs",
       "title": "CRT Trading Strategy - Candle Range Theory",
-      "processedAt": "2026-01-15T23:51:18.184Z",
-      "conceptsExtracted": 8,
-      "strategiesExtracted": 4,
-      "points": 2500
+      "processedAt": "2026-01-17T02:03:26.682Z",
+      "conceptsExtracted": 4,
+      "strategiesExtracted": 2,
+      "points": 800
     }
   },
-  "lastUpdate": "2026-01-15T23:51:18.214Z",
-  "totalLearnings": 12
+  "lastUpdate": "2026-01-17T02:03:26.758Z",
+  "totalLearnings": 18
 }
