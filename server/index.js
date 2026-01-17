@@ -898,9 +898,83 @@ app.get('/stats', (req, res) => {
     });
 });
 
+
 // ===== INICIAR SERVIDOR =====
 
 const PORT = process.env.PORT || 3001;
+
+// 🧠 Sistema de Aprendizado Automático (a cada hora)
+let learningInterval = null;
+
+async function runAutomaticLearning() {
+    console.log('\n🎓 ========================================');
+    console.log('🧠 APRENDIZADO AUTOMÁTICO DA IA');
+    console.log('🎓 ========================================\n');
+
+    try {
+        const startTime = Date.now();
+
+        // 1. Recarregar conhecimento ativo
+        await knowledgeApplicator.loadActiveKnowledge();
+
+        // 2. Obter estatísticas atuais
+        const stats = knowledgeApplicator.getSummary();
+        const newConcepts = stats.totalKnowledge.concepts;
+        const newStrategies = stats.totalKnowledge.strategies;
+        const newVideos = stats.totalKnowledge.videos;
+
+        // 3. Calcular score de aprendizado
+        const score = (newConcepts * 100) + (newStrategies * 200) + (newVideos * 500);
+
+        // 4. Criar relatório
+        const report = {
+            time: new Date().toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' }),
+            newVideos: newVideos,
+            newConcepts: newConcepts,
+            score: score,
+            strategies: newStrategies,
+            performance: stats.performance.avgConceptSuccess
+        };
+
+        // 5. Adicionar ao histórico (manter últimos 10)
+        state.learningReports.push(report);
+        if (state.learningReports.length > 10) {
+            state.learningReports.shift();
+        }
+
+        const duration = Date.now() - startTime;
+
+        console.log('📊 Relatório de Aprendizado:');
+        console.log(`   ⏰ Hora: ${report.time}`);
+        console.log(`   📹 Vídeos processados: ${report.newVideos}`);
+        console.log(`   💡 Conceitos ativos: ${report.newConcepts}`);
+        console.log(`   🎯 Estratégias: ${report.strategies}`);
+        console.log(`   🏆 Score: ${report.score}`);
+        console.log(`   📈 Performance: ${report.performance}`);
+        console.log(`   ⚡ Duração: ${duration}ms`);
+
+        console.log('\n✅ Aprendizado atualizado com sucesso!');
+        console.log('🔄 Próximo aprendizado em 1 hora...\n');
+
+        // Broadcast update para atualizar frontend
+        broadcastUpdate();
+
+    } catch (error) {
+        console.error('❌ Erro no aprendizado automático:', error);
+    }
+}
+
+function startAutomaticLearning() {
+    // Executar primeira vez após 1 minuto
+    setTimeout(() => {
+        console.log('🎓 Iniciando sistema de aprendizado automático...\n');
+        runAutomaticLearning();
+
+        // Depois executar a cada hora (3600000ms)
+        learningInterval = setInterval(runAutomaticLearning, 3600000);
+
+    }, 60000); // 1 minuto
+}
 
 server.listen(PORT, async () => {
     console.log('🚀 ========================================');
@@ -933,6 +1007,9 @@ server.listen(PORT, async () => {
     } catch (error) {
         console.log(`⚠️ Erro na configuração Futures: ${error.message}\n`);
     }
+
+    // 🎓 Iniciar sistema de aprendizado automático
+    startAutomaticLearning();
 
     startMarketStream();
 });
